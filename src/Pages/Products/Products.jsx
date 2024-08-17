@@ -6,6 +6,7 @@ import Search from "../../Components/Search";
 import Sort from "../../Components/Sort";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Pagination } from "../../Components/Pagination";
 
 const Products = () => {
   const [category, setCategory] = useState("");
@@ -62,7 +63,10 @@ const Products = () => {
           </form>
         </div>
         <div>
-          <Cards product={product}></Cards>
+          <Cards product={product} />
+        </div>
+        <div className="mt-10">
+          <Pagination />
         </div>
       </div>
     </div>
