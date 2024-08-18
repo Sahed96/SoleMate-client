@@ -8,6 +8,9 @@ import Root from "./Root/Root";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
+import Register from "./Pages/RegisterPage/Register";
+import Login from "./Pages/LoginPage/Login";
+import AuthProvider from "./AuthProvider/AuthProvider";
 
 const queryClient = new QueryClient();
 
@@ -25,14 +28,24 @@ const router = createBrowserRouter([
         path: "/products",
         element: <Products />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </AuthProvider>
   </StrictMode>
 );

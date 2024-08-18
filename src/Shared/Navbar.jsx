@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
+import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
+  const { logout, user } = useAuth();
+
   const navList = (
     <>
       <li>
@@ -48,7 +51,47 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navList}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-accent btn-outline">Login</a>
+        {user ? (
+          <div className=" dropdown dropdown-bottom dropdown-end dropdown-hover flex ">
+            <label tabIndex={0} className=" btn btn-ghost btn-circle avatar">
+              <div className=" w-10 rounded-full">
+                <img
+                  src={user?.photoURL || "https://i.ibb.co/hXqMFH8/noimg.png"}
+                  alt=""
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm w-auto items-center dropdown-content z-[1] bg-base-100 rounded-box shadow"
+            >
+              <li>
+                <a className="text-base justify-center font-semibold hover:text-rose-600">
+                  {user?.displayName || "N/A"}
+                </a>
+                <a className="text-base font-semibold hover:text-rose-600">
+                  {user?.email || "n/a"}
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/login"
+                  onClick={logout}
+                  className=" text-base font-semibold hover:bg-rose-500 hover:text-white hover:font-bold"
+                >
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className="btn text-base rounded-full font-semibold bg-cyan-500 hover:bg-cyan-600 hover:text-white hover:font-bold"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -13,34 +13,42 @@ const Products = () => {
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
   const [range, setRange] = useState("");
+  const [page, setPage] = useState(1);
 
-  const { data: product = [] } = useQuery({
-    queryKey: ["product", value, category, name, range],
+  const { data: productData = {} } = useQuery({
+    queryKey: ["product", value, category, name, range, page],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/allProducts?value=${value}&category=${category}&search=${name}&range=${range}`
+        `http://localhost:5000/allProducts?value=${value}&category=${category}&search=${name}&range=${range}&page=${page}`
       );
       return res.data;
     },
   });
 
+  const { products = [], totalPages } = productData;
+
   const handleSort = (sort) => {
     setValue(sort);
-    console.log(sort, "handleSort", value);
+    setPage(1);
   };
 
   const handleChange = (categoryValue) => {
     setCategory(categoryValue);
-    console.log(categoryValue, "handleChange", category);
+    setPage(1);
   };
 
   const handleSearch = (searchValue) => {
     setName(searchValue);
+    setPage(1);
   };
 
   const handlePrice = (priceRange) => {
     setRange(priceRange);
-    console.log(priceRange, "handlePrice", range);
+    setPage(1);
+  };
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
   };
 
   return (
@@ -63,10 +71,14 @@ const Products = () => {
           </form>
         </div>
         <div>
-          <Cards product={product} />
+          <Cards product={products} />
         </div>
         <div className="mt-10">
-          <Pagination />
+          <Pagination
+            totalPages={totalPages}
+            currentPage={page}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </div>
