@@ -52,8 +52,8 @@ const Products = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="w-[20%] min-h-screen">
+    <div className="lg:flex">
+      <div className="lg:w-[20%] w-full  lg:min-h-screen">
         <div className="max-h-56 bg-slate-200 px-8 pt-2 rounded-xl mx-5 mt-4">
           <Category handleChange={handleChange} />
         </div>
@@ -61,8 +61,8 @@ const Products = () => {
           <Price handlePrice={handlePrice} />
         </div>
       </div>
-      <div className="w-[80%] p-6">
-        <div className="flex justify-between">
+      <div className="lg:w-[80%] w-full p-6">
+        <div className="flex gap-3 lg:gap-0 justify-between">
           <form>
             <Search handleSearch={handleSearch} />
           </form>

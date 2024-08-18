@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 const Sort = ({ handleSort }) => {
   return (
-    <div>
+    <div className="lg:mr-4 mr-0">
       <select
         onChange={(e) => handleSort(e.target.value)}
         name="sort"
         id="sort"
-        className="select select-accent w-full max-w-xs"
+        className="select select-accent w-full  max-w-xs"
       >
         <option>sort by</option>
         <option value="low">Low to High</option>

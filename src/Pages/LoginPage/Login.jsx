@@ -52,7 +52,7 @@ const Login = () => {
         <title>Login- SoleMate</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="w-full max-w-md p-8 mx-auto mt-20 lg:mt-10 space-y-3 rounded-xl border-2 border-rose-400 dark:text-gray-800">
+      <div className="w-full max-w-md p-8 mx-auto mt-4 lg:mt-7 space-y-3 mb-10 rounded-xl bg-emerald-50 dark:text-gray-800">
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-1 text-sm">
@@ -98,7 +98,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <button className="block px-5 py-3 text-center mx-auto rounded-full font-semibold bg-rose-400 hover:bg-red-500 hover:text-white hover:font-bold">
+          <button className="block px-5 py-3 text-center mx-auto rounded-full font-semibold bg-cyan-400 hover:bg-cyan-500 hover:text-white hover:font-bold">
             Sign in
           </button>
         </form>

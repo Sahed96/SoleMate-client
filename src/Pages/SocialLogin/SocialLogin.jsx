@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { FcGoogle } from "react-icons/fc";
 
 const SocialLogin = () => {
   const { googleLogin } = useAuth();
@@ -18,7 +19,7 @@ const SocialLogin = () => {
       };
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);
-        navigate("/");
+        navigate("/products");
       });
     });
   };
@@ -30,11 +31,14 @@ const SocialLogin = () => {
         aria-label="Log in with Google"
         className="p-3 rounded-sm"
       >
-        <img
+        <p className="text-5xl">
+          <FcGoogle />
+        </p>
+        {/* <img
           className="h-10 w-10"
           src="https://i.imgur.com/7EJXDUm.png"
           alt=""
-        />
+        /> */}
       </button>
     </div>
   );
