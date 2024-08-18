@@ -1,8 +1,13 @@
+import logo from "../assets/logo.jpeg";
+
 export default function Footer() {
   return (
     <footer className="flex flex-col text-black">
       <div className="flex flex-col items-center justify-around gap-5 bg-gray-300 py-8 dark:bg-gray-500 dark:text-white md:flex-row md:gap-0">
-        <h5 className="text-2xl font-bold">NavigateUI</h5>
+        <div className="justify-center items-center flex">
+          <img className="w-10 h-10" src={logo} alt="" />
+          <a className=" text-2xl font-bold">SoleMate</a>
+        </div>
         <nav className="text-lg">
           <ul className=" flex h-full items-center justify-center gap-5">
             <li className="cursor-pointer">
@@ -48,7 +53,7 @@ export default function Footer() {
         </nav>
       </div>
       <aside className="bg-gray-500 py-5 text-center text-sm text-white dark:bg-gray-800">
-        <p>&copy; 2024 NavigateUI. All Rights Reserved.</p>
+        <p>&copy; 2024 SoleMate. All Rights Reserved.</p>
       </aside>
     </footer>
   );

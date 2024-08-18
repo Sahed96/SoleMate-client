@@ -11,6 +11,7 @@ import Products from "./Pages/Products/Products";
 import Register from "./Pages/RegisterPage/Register";
 import Login from "./Pages/LoginPage/Login";
 import AuthProvider from "./AuthProvider/AuthProvider";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: <Products />,
+        element: (
+          <PrivateRoute>
+            <Products />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

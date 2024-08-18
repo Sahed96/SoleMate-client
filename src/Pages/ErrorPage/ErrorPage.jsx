@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <section className="bg-white ">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>404- Crafty Labs</title>
+        <title>404- SoleMate</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
