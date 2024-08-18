@@ -31,7 +31,6 @@ const Register = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          // create user entry in the database
           const userInfo = {
             name: data.name,
             email: data.email,

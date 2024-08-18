@@ -1,27 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 const SocialLogin = () => {
   const { googleLogin } = useAuth();
-  const axiosPublic = useAxiosPublic();
 
   const navigate = useNavigate();
-  // const location = useLocation();
 
   const handleGoogleLogin = () => {
-    googleLogin().then((result) => {
-      console.log(result.user);
-      const userInfo = {
-        email: result.user?.email,
-        name: result.user?.displayName,
-      };
-      axiosPublic.post("/users", userInfo).then((res) => {
-        console.log(res.data);
-        navigate("/products");
+    googleLogin()
+      .then((result) => {
+        if (result.user) {
+          toast.success("Login Successfully", {
+            duration: 2000,
+          });
+          setTimeout(() => {
+            navigate(location?.state || "/products");
+          }, 2000);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    });
   };
 
   return (
@@ -34,11 +35,6 @@ const SocialLogin = () => {
         <p className="text-5xl">
           <FcGoogle />
         </p>
-        {/* <img
-          className="h-10 w-10"
-          src="https://i.imgur.com/7EJXDUm.png"
-          alt=""
-        /> */}
       </button>
     </div>
   );
