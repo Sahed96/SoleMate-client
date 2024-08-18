@@ -1,8 +1,33 @@
-# React + Vite
+### Frontend README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Solemate - Shoe Store
 
-Currently, two official plugins are available:
+**Live Site:** [https://solemate-cb250.web.app/](https://solemate-cb250.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Setup and Instructions
+
+To run the project locally, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd <frontend-directory>
+   ```
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Start the development server:**
+   ```bash
+   npm start
+   ```
+
+## Top Features
+
+- **Product Listing and Sorting:** Browse through a range of shoes, with options to sort by price and latest additions.
+- **Search Functionality:** Quickly find the shoes you're looking for with a responsive search bar.
+- **Filter by Price Range:** Filter products by different price ranges to narrow down your options.
+- **Responsive Design:** Seamless experience across devices, ensuring a user-friendly interface on both mobile and desktop.
