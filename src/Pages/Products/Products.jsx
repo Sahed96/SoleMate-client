@@ -19,7 +19,7 @@ const Products = () => {
     queryKey: ["product", value, category, name, range, page],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/allProducts?value=${value}&category=${category}&search=${name}&range=${range}&page=${page}`
+        `https://solemate-server.vercel.app/allProducts?value=${value}&category=${category}&search=${name}&range=${range}&page=${page}`
       );
       return res.data;
     },
